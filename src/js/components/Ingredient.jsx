@@ -9,13 +9,10 @@ import React from 'react';
 const Ingredient = ({ingredient, filterText=""}) => {
 	let startingIndex = ingredient.name.indexOf(filterText)
 	let endingIndex = ingredient.name.indexOf(filterText) + filterText.length
-	return <div className="p-2 w-25">
-		<p>{ingredient.name.substring(0, startingIndex)}<span className="bg-primary">{ingredient.name.substring(startingIndex, endingIndex)}</span>{ingredient.name.substring(endingIndex)}</p>
-	</div>
+	return <a href="#"><li>{ingredient.name.substring(0, startingIndex)}<span className="bg-primary">{ingredient.name.substring(startingIndex, endingIndex)}</span>{ingredient.name.substring(endingIndex)}</li></a>
 }
 
 const IngredientTable = ({ingredients, filterText}) => {
-
 	// On fait le trie des ingrédients selon la taille de la chaine de recherche
 	let filteredIngredients = filterText.length >= 3
 		?
@@ -25,11 +22,11 @@ const IngredientTable = ({ingredients, filterText}) => {
 
 	return filteredIngredients.length > 0
 		?
-		<div className="d-flex flex-row flex-wrap">
+		<ul className="element-list">
 			{filteredIngredients.map(ingredient => <Ingredient filterText={filterText} key={ingredient.id} ingredient={ingredient}/>) }
-		</div>
+		</ul>
 		:
-		<p>Aucun résultat pour votre recherche</p>
+		<a href={null}>Aucun résultat pour votre recherche</a>
 }
 
 export default IngredientTable
