@@ -12,14 +12,8 @@ class SearchBar extends React.Component {
 	}
 
 	render() {
-
 		const {filterText} = this.props
-
-		return <div>
-			<div className="form-group">
-				<input type="text" value={filterText} onChange={this.handleFilterTextChange} className="form-control" placeholder="Tapez au minimum 2 caractères pour lancer la recherche"/>
-			</div>
-		</div>
+		return <input type="text" value={filterText} onChange={this.handleFilterTextChange} className="form-control" placeholder="Tapez au minimum 2 caractères pour lancer la recherche"/>
 	}
 
 }

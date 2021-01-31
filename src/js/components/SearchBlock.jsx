@@ -19,16 +19,16 @@ class SearchBlock extends React.Component {
 
 	render() {
 		const {ingredients} = this.props
-		return <React.Fragment>
+		return <div className="search-bloc">
 			<SearchBar
 				filterText={this.state.filterText}
 				onFilterTextChange={this.handleFilterTextChange}
 			/>
-			<IngredientTable
+			{this.state.filterText !== "" && <IngredientTable
 				ingredients={ingredients}
 				filterText={this.state.filterText}
-			/>
-		</React.Fragment>
+			/>}
+		</div>
 	}
 }
 
